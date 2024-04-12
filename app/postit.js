@@ -32,7 +32,7 @@ function postItGetDOM(postItData) {
     const elPostIt = document.createElement('div'); //? Représentation du post-it à l'affichage
     elPostIt.classList.add('post-it');
 
-    //TODO: Le code complet du post-it
+    //TODO: Le code complet du post-it ici
 
     return elPostIt;
 };

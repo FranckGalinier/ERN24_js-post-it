@@ -1,9 +1,10 @@
-//***************************app.js****************************** */
+//********************************app.js****************************** */
 
 const app = {
     elBtnClear: document.getElementById('clear-btn'), //? Récupération du bouton "effacer tout" du html
     elPostItsContainer: document.getElementById('post-its-w'), //? Récupération de la div Post-it du html
-    elCreateForm: null //? je mets un objet inexistant pour préparer la variable qui va contenir le formulaire
+    elCreateForm: null, //? je mets un objet inexistant pour préparer la variable qui va contenir le formulaire
+    arrPostItDatas: [],
 };
 
 
@@ -19,7 +20,19 @@ const app = {
 function appInit() {
     console.log('Application démarré');
 
-
+    //? Temporaire :
+    app.arrPostItDatas.push( //? push : rajoute un élément à la fin du tableau
+    {title: '',
+    content: '',
+    createStamp: 0,
+    updateStamp: 0,},
+    );
+    //? Ajout des post-it sur la page
+    for(let postIt of app.arrPostItDatas)
+    {
+        const elPostIt = postItGetDOM (postIt);
+        app.elPostItsContainer.append(elPostIt);
+    };
     //? Création  du formulaire
     appCreateFormDOM(); //? créer le formualaire et le stocke dans le DOM
 
@@ -60,7 +73,7 @@ function appCreateFormDOM() {  //?Application qui va créer le formulaire
 
 
     //? Injection du contenu dans elCreateForm
-    app.elCreateForm.innerHTML = htmlContent; //? On rajoute le contenu de la variable dans le texte html (innerHTML) pour qu'il existe
+    app.elCreateForm.innerHTML = htmlContent; // ? On rajoute le contenu de la variable dans le texte html (innerHTML) pour qu'il existe
 
 
     // ? Gestion du bouton d'enregistrement  
