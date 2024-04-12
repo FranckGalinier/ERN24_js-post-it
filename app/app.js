@@ -74,5 +74,4 @@ function appCreateFormDOM() {  //?Application qui va créer le formulaire
  */
 function appHandlerNewPostIt() {
     console.log('cliqué');
-
 }
